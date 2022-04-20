@@ -109,7 +109,7 @@
         newUl.appendChild(node)
 
         let newElement = document.getElementById('secondList')
-        newElement.appendChild(newUl)
+        document.body.insertBefore(newUi, newElement)
       };
       console.log(addToTheSecond())
 
