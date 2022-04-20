@@ -104,8 +104,14 @@
       */
 
       const addToTheSecond = function (content) {
-        //
+        let newUl = document.createElement('ul')
+        let node = document.createTextNode('4rd')
+        newUl.appendChild(node)
+
+        let newElement = document.getElementById('secondList')
+        newElement.appendChild(newUl)
       };
+      console.log(addToTheSecond())
 
       /* EXERCISE 6
        Write a function for adding a second paragraph to the first div.
