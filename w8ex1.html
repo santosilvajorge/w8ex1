@@ -45,7 +45,7 @@
 
     <div>
       <p>And this text is just for the exercise too!</p>
-      <h2 style="color: red">
+      <h2 style="color: red" id="footer">
         Save this page on your computer and open it with VSCode to get the
         questions!
       </h2>
@@ -89,13 +89,13 @@
       /* EXERCISE 4
        Write a function for changing the href property of every link to https://www.google.com
       */
-
+      
       const changeUrls = function () {
         let linksChange = document.querySelector('a')
-        linksChange.replace('https://www.google.com')
+        linksChange.href = 'https://www.google.com'
         
       };
-      console.log(changeUrls())
+      changeUrls()
 
 
 
@@ -104,69 +104,114 @@
       */
 
       const addToTheSecond = function (content) {
-        let newUl = document.createElement('ul')
-        let node = document.createTextNode('4rd')
-        newUl.appendChild(node)
-
         let newElement = document.getElementById('secondList')
-        document.body.insertBefore(newUi, newElement)
+
+        let newLi = document.createElement('li')
+        newLi.innerText = '4rd'
+        newElement.appendChild(newLi)
+
       };
-      console.log(addToTheSecond())
+      addToTheSecond()
+
+
 
       /* EXERCISE 6
        Write a function for adding a second paragraph to the first div.
       */
 
       const addParagraph = function (content) {
-        //
+        let newParagraph = document.querySelector('div')
+        
+        let newP = document.createElement("p")
+        newP.innerText ='This is the second Paragraph!'
+        newParagraph.appendChild(newP)
+
       };
+      addParagraph()
+
+
 
       /* EXERCISE 7
        Write a function for making the first unordered list disappear.
       */
 
       const firstUlDisappear = function () {
-        //
+        let firstUl = document.getElementById('firstList')
+
+        firstUl.style.display = 'none'
       };
+      firstUlDisappear()
 
       /* EXERCISE 8
        Write a function for making the background of every unordered list green.
       */
 
       const paintItGreen = function () {
-        //
+        let allUl = document.querySelectorAll('ul')
+        for (i=0; i < allUl.length; i++){ 
+        allUl[i].style.background = 'green'
+        }
       };
+      paintItGreen()
+
+
 
       /* EXERCISE 9
        Make the heading of the page change color every time the user clicks on it.
       */
 
+      let clickHead = document.getElementsByTagName('h1')[0]
+
       const makeItClickable = function () {
-        //
+       function random(number) {
+        return Math.floor(Math.random() * (number+1));
+      }
+
+      clickHead.addEventListener('click', () => {
+        const rndCol = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
+        document.body.style.backgroundColor = rndCol;
+        });
       };
+      makeItClickable()
+
+
 
       /* EXERCISE 10
        Change the footer text with something else when the user clicks on it.
       */
 
+      let ChangeFooter = document.getElementById('footer')
+      
       const changeFooterText = function () {
-        //
+        ChangeFooter.addEventListener('click', () => {ChangeFooter.innerHTML = 'You just clicked ME'})
       };
+      changeFooterText()
+
+
 
       /* EXERCISE 11
        Attach an event listener to the input field in the page for console logging its value just after any keystroke.
       */
 
       const inputField = document.getElementById("input-field");
-      // ...
+      
+      inputField.addEventListener('keypress', logKey);
+
+      function logKey(e) {
+        inputField.textContent += ` ${e.code}`;
+      }
+
+
 
       /* EXERCISE 12
        Create a welcome alert message when the page successfully loads.
       */
 
       window.onload = function () {
-        //
+        console.log(alert('Welcome to this PAGE!'))
       };
+
+
 
       /* EXERCISE 13
        Use HTML5 tags to properly provide semantic meaning to the different portions of the page.
